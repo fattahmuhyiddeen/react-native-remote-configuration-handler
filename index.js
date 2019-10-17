@@ -23,9 +23,7 @@ const getRemoteConfiguration = (url, requestHeader, onSuccess, onFail) => {
 
 export default class RemoteConfiguration extends React.PureComponent {
   static defaultProps = {
-    onDataChanged: () => null,
-    onPersistedDataLoaded: () => null,
-    retryInSeconds: 5,
+    retryInSeconds: 8,
     request: {
       method: 'GET',
       headers: {
