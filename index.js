@@ -35,7 +35,7 @@ export default class RemoteConfiguration extends React.PureComponent {
 
   constructor(props, defaultProps) {
     super(props, defaultProps);
-    getData(props.storage, props.onPersistedDataLoaded);
+    props.storage && getData(props.storage, props.onPersistedDataLoaded);
     this.getRemoteConfiguration();
   }
 
