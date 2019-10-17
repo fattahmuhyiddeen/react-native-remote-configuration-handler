@@ -1,6 +1,6 @@
 {
   "name": "react-native-remote-configuration-handler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Your app need configuration remotely? This library can handle it for you, retry if fails, and many more feature you can suggest to me to add",
   "main": "index.js",
   "scripts": {
