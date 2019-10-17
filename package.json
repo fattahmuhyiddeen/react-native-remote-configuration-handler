@@ -1,0 +1,20 @@
+{
+  "name": "react-native-remote-configuration-handler",
+  "version": "1.0.0",
+  "description": "Your app need configuration remotely? This library can handle it for you, retry if fails, and many more feature you can suggest to me to add",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fattahmuhyiddeen/react-native-remote-configuration-handler.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fattahmuhyiddeen/react-native-remote-configuration-handler/issues"
+  },
+  "homepage": "https://github.com/fattahmuhyiddeen/react-native-remote-configuration-handler#readme"
+}
