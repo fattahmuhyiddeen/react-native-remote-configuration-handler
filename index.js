@@ -35,13 +35,23 @@ export default class RemoteConfiguration extends React.PureComponent {
 
   constructor(props, defaultProps) {
     super(props, defaultProps);
-    props.storage && getData(props.storage, props.onPersistedDataLoaded);
+    if (props.firebase) {
+      this.firebase = props.firebase;
+    }
+    props.storage && getData(props.storage, props.onDataChanged);
     this.getRemoteConfiguration();
   }
 
   getRemoteConfiguration = () => {
-    const { retryInSeconds, url, request, onDataChanged } = this.props;
-    getRemoteConfiguration(url, request, onDataChanged, !retryInSeconds ? () => null : () => setTimeout(this.getRemoteConfiguration, retryInSeconds * 1000));
+    const { retryInSeconds, url, request, onDataChanged, firebaseParamKey } = this.props;
+    if (this.firebase) {
+      this.firebase.config().fetch()
+        .then(() => this.firebase.config().activateFetched())
+        .then((activated) => this.firebase.config().getValue(firebaseParamKey))
+        .then((snapshot) => alert(snapshot.val()) || onDataChanged(JSON.parse(snapshot.val())));
+    } else {
+      getRemoteConfiguration(url, request, onDataChanged, !retryInSeconds ? () => null : () => setTimeout(this.getRemoteConfiguration, retryInSeconds * 1000));
+    }
   }
 
   render() {
